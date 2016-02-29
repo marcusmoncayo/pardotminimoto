@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  username: MyString
+  height: 9.99
+  weight: 1
+
+two:
+  username: MyString
+  height: 9.99
+  weight: 1

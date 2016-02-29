@@ -1,0 +1,21 @@
+<%= form_for @lap do |f| %>
+  <p>Select Username:</p>
+  <%= select(:lap, :user_id, @users.collect {|u| [ u.username, u.id ] }) %>
+  <br/>
+  <p>Bike</p>
+  <%= select(:lap, :bike_id, @bikes.collect {|b| [ b.color, b.id ] }, { include_blank: false}) %>
+  <br/>
+  <br/>
+  <div>
+    <span>Time:</span><%= f.text_field :formatted_time %>
+    <div>
+  </div>
+	<input id="start" type="button" value="start"/>
+	<input id="stop" type="button" value="stop"/>
+	<input id="reset" type="button" value="reset"/>
+  <br/>
+  <br/>
+  <%= f.submit %>
+<% end %>
+<br/>
+<%= link_to 'Back', :root %>
