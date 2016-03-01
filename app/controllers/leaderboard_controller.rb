@@ -1,5 +1,3 @@
-require 'pry'
-
 class LeaderboardController < ApplicationController
   def index
     @laps = []
