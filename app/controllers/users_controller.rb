@@ -24,7 +24,8 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+    height = params[:user][:height_feet].to_i * 12 + params[:user][:height_inches].to_i
+    @user = User.new(user_params.merge(height: height))
 
     respond_to do |format|
       if @user.save
@@ -40,8 +41,9 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+    height = params[:user][:height_feet].to_i * 12 + params[:user][:height_inches].to_i
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(user_params.merge(height: height))
         format.html { redirect_to root_path, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -69,6 +71,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:username, :height, :weight)
+      params.require(:user).permit(:username, :weight)
     end
 end
