@@ -6,6 +6,7 @@
     <table>
       <thead>
         <tr>
+          <th>Place</th>
           <th>User</th>
           <th>Time</th>
           <th>Bike</th>
@@ -13,8 +14,9 @@
       </thead>
 
       <tbody>
-        <% @laps.each do |lap| %>
+        <% @laps.each_with_index do |lap, index| %>
           <tr>
+            <td><%= index + 1 %></td>
             <td><%= User.find(lap.user_id).username %></td>
             <td><%= lap.formatted_time %></td>
             <td><%= Bike.find(lap.bike_id).color %></td>
