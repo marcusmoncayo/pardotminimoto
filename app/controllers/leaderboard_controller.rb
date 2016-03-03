@@ -7,10 +7,10 @@ class LeaderboardController < ApplicationController
       @laps.push(@lap) if @lap
     end
 
-    if @laps.count < 10
+    if @laps.count < 30
       @laps = @laps.take(@laps.count).sort { |x, y| x.formatted_time <=> y.formatted_time  }
     else
-      @laps = @laps.take(10).sort { |x, y| x.formatted_time <=> y.formatted_time  }
+      @laps = @laps.sort { |x, y| x.formatted_time <=> y.formatted_time  }.take(30)
     end
   end
 end
