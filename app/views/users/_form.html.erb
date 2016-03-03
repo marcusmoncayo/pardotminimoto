@@ -17,7 +17,12 @@
   </div>
   <div class="field">
     <%= f.label :height %><br>
-    <%= f.text_field :height %>
+
+    <%= f.label :height_feet, "ft" %>
+    <%= f.select :height_feet, options_for_select(0..8, @user.height_feet) %>
+
+    <%= f.label :height_inches, "in" %>
+    <%= f.select :height_inches, options_for_select(0..11, @user.height_inches) %>
   </div>
   <div class="field">
     <%= f.label :weight %><br>
