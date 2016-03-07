@@ -1,23 +1,27 @@
-<h1>Laps</h1>
+<div class="row">
+  <div class="small-8 small-offset-2">
+    <h1 class="text-center">All Laps</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>User</th>
-      <th>Time</th>
-      <th>Bike</th>
-    </tr>
-  </thead>
+    <table>
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Time</th>
+          <th>Bike</th>
+        </tr>
+      </thead>
 
-  <tbody>
-    <% @laps.each do |lap| %>
-      <tr>
-        <td><%= User.find(lap.user_id).username %></td>
-        <td><%= lap.formatted_time %></td>
-        <td><%= Bike.find(lap.bike_id).color %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+      <tbody>
+        <% @laps.each do |lap| %>
+          <tr>
+            <td><%= User.find(lap.user_id).username %></td>
+            <td><%= lap.formatted_time %></td>
+            <td><%= Bike.find(lap.bike_id).color %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
 
-<%= link_to 'Back', :root %>
+    <%= link_to 'Back', :root %>
+  </div>
+</div>
