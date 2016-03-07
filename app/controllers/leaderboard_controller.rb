@@ -12,5 +12,7 @@ class LeaderboardController < ApplicationController
     else
       @laps = @laps.take(10).sort { |x, y| x.formatted_time <=> y.formatted_time  }
     end
+
+    
   end
 end
