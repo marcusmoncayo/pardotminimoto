@@ -13,7 +13,7 @@ class LapsController < ApplicationController
     @lap = Lap.new(lap_params)
     respond_to do |format|
       if @lap.save
-        format.html { redirect_to root_path, notice: 'Lap was successfully saved.' }
+        format.html { redirect_to leaderboard_path, notice: 'Lap was successfully saved.' }
       else
         format.html { redirect_to root_path, notice: 'Lap was not successfully saved.' }
       end
