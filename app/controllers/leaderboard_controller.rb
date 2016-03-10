@@ -11,7 +11,9 @@ class LeaderboardController < ApplicationController
   end
 
   def index_for_bike
+    bike_id = params[:bike_id]
     @bike = Bike.find(bike_id)
+    @laps = []
 
     User.all.each do |user|
       @lap = Lap.where("user_id = ?", user.id).where("bike_id = ?", bike_id).order("formatted_time ASC").first
