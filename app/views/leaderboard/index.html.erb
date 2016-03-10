@@ -18,7 +18,7 @@
           <tr>
             <td><%= index + 1 %></td>
             <td><%= User.find(lap.user_id).username %></td>
-            <td><%= lap.formatted_time %></td>
+            <td><%= lap.formatted_time.round(2) %></td>
             <td><%= Bike.find(lap.bike_id).color %></td>
           </tr>
         <% end %>
