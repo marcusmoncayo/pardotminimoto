@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   post 'laps' => 'laps#create'
   get 'laps' => 'laps#index'
   get 'leaderboard' => 'leaderboard#index'
+  get 'leaderboard/bike/:bike_id' => 'leaderboard#index_for_bike'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
