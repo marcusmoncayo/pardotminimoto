@@ -4,8 +4,8 @@ Rails.application.routes.draw do
   get 'laps/new' => 'laps#new'
   post 'laps' => 'laps#create'
   get 'laps' => 'laps#index'
-  get 'leaderboard' => 'leaderboard#index'
-  get 'leaderboard/bike/:bike_id' => 'leaderboard#index_for_bike'
+  get 'leaderboard/bike/:bike_id' => 'leaderboard#index_for_bike', as: 'bike_leaderboard'
+  get 'leaderboard' => 'leaderboard#index', as: 'leaderboard'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
