@@ -2,7 +2,7 @@ class LapsController < ApplicationController
   def new
     @lap = Lap.new
     @users = User.all
-    @bikes = Bike.all
+    @bikes = Bike.all.reverse #hack to get accurate blue to first position
   end
 
   def index
