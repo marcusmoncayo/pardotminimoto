@@ -3,4 +3,5 @@ class Lap < ActiveRecord::Base
   has_one :bike
 
   validates :formatted_time, numericality: true, presence: true
+  validates :bike_id, presence: true
 end
