@@ -1,11 +1,17 @@
 Rails.application.routes.draw do
   resources :users
   root 'home#index', as: 'root'
+
   get 'laps/new' => 'laps#new'
   post 'laps' => 'laps#create'
   get 'laps' => 'laps#index'
+  get 'laps/unclaimed' => 'laps#unclaimed', as: 'unclaimed_laps'
+  get 'laps/claim/:id' => 'laps#claim', as: 'claim_lap'
+  post 'laps/claim/:id' => 'laps#claim_post', as: 'claim_lap_post'
+
   get 'leaderboard/bike/:bike_id' => 'leaderboard#index_for_bike', as: 'bike_leaderboard'
   get 'leaderboard' => 'leaderboard#index', as: 'leaderboard'
+  get 'leaderboard/list' => 'leaderboard#list', as: 'leaderboard_list'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

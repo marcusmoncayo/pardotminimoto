@@ -22,4 +22,8 @@ class LeaderboardController < ApplicationController
 
     @laps = @laps.sort { |x, y| x.formatted_time <=> y.formatted_time  }
   end
+
+  def list
+  end
+  
 end

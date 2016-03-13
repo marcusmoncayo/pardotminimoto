@@ -1,0 +1,26 @@
+
+<div class="small-8 small-offset-2">
+  <h1 class="text-center">Unclaimed Laps</h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Time</th>
+        <th>Bike</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @laps.each do |lap| %>
+        <tr>
+          <td><%= lap.formatted_time %></td>
+          <td><%= Bike.find(lap.bike_id).color %></td>
+          <td><%= link_to "Claim", claim_lap_path(lap.id) %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <%= link_to 'Back', :root %>
+</div>

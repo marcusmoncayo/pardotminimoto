@@ -1,0 +1,5 @@
+<% Bike.all.each do |bike| %>
+  <div>
+    <%= link_to("#{bike.color} Leaderboard", bike_leaderboard_path(bike.id)) %>
+  </div>
+<% end %>

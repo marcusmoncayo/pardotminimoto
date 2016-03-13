@@ -1,0 +1,25 @@
+
+<div class="small-6 small-offset-3">
+  <h1 class="text-center">Record Lap Time</h1>
+  <%= form_tag claim_lap_post_path(@lap.id), method: "POST" do %>
+    <% if @notice %>
+      <div id="error_explanation">
+        <h2>Error prohibited this lap from being saved:</h2>
+        <ul>
+          <li><%= @notice %></li>
+        </ul>
+      </div>
+    <% end %>
+    <p>Select Username:</p>
+    <%= select_tag(:user_id, options_for_select(User.all.collect {|u| [ u.username, u.id ] })) %>
+    <br/>
+    <p>Bike: <%= Bike.find(@lap.bike_id).color %></p>
+    <div>
+      <span>Time:</span><%= @lap.formatted_time %>
+    </div>
+      <br>
+    <%= submit_tag %>
+  <% end %>
+  <br/>
+  <%= link_to 'Back', :root %>
+</div>

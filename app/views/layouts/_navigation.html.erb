@@ -10,7 +10,9 @@
       <ul class="dropdown menu" data-dropdown-menu>
         <li><a href="/laps/new">Record Lap Time</a></li>
         <li><a href="/laps">All Laps</a></li>
-        <li><a href="/leaderboard">Go To Leaderboard</a></li>
+        <li><%= link_to "Unclaimed Laps", unclaimed_laps_path %> </li>
+        <li><%= link_to "Leaderboards", leaderboard_list_path %> </li>
+        <li><a href="/leaderboard">Overall Leaderboard</a></li>
       </ul>
     </div>
   </div>

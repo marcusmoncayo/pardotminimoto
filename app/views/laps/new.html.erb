@@ -14,7 +14,7 @@
     <%= select(:lap, :user_id, @users.collect {|u| [ u.username, u.id ] }) %>
     <br/>
     <p>Bike</p>
-    <%= select(:lap, :bike_id, @bikes.collect {|b| [ b.color, b.id ] }, { include_blank: false}) %>
+    <%= select(:lap, :bike_id, options_for_select(@bikes.collect {|b| [ b.color, b.id ] }, selected: [@default_bike.color, @default_bike.id]), { include_blank: false}) %>
     <br/>
     <br/>
     <div>
