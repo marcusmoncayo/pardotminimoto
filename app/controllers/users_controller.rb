@@ -10,6 +10,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
+    @laps = Lap.all.where("user_id = ? ", @user.id).sort { |x, y| x.formatted_time <=> y.formatted_time }
   end
 
   # GET /users/new

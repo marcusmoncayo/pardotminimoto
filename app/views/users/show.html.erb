@@ -15,5 +15,22 @@
   <%= @user.weight %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<table>
+  <thead>
+    <tr>
+      <th>Bike</th>
+      <th>Time</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @laps.each_with_index do |lap, _| %>
+      <tr>
+        <td><%= Bike.find(lap.bike_id).color %></td>
+        <td><%= lap.formatted_time.round(2) %></td>
+        <td><%= lap.created_at.strftime("%m/%d/%Y") %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
