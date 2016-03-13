@@ -2,6 +2,14 @@
 <div class="small-6 small-offset-3">
   <h1 class="text-center">Record Lap Time</h1>
   <%= form_for @lap do |f| %>
+  <% if @notice %>
+      <div id="error_explanation">
+        <h2>Error prohibited this lap from being saved:</h2>
+        <ul>
+          <li><%= @notice %></li>
+        </ul>
+      </div>
+    <% end %>
     <p>Select Username:</p>
     <%= select(:lap, :user_id, @users.collect {|u| [ u.username, u.id ] }) %>
     <br/>

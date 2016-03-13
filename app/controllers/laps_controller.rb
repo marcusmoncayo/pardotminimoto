@@ -1,5 +1,6 @@
 class LapsController < ApplicationController
   def new
+    @notice = notice
     @lap = Lap.new
     @users = User.all
     @bikes = Bike.all
@@ -15,7 +16,7 @@ class LapsController < ApplicationController
       if @lap.save
         format.html { redirect_to bike_leaderboard_path(@lap.bike_id), notice: 'Lap was successfully saved.' }
       else
-        format.html { redirect_to root_path, notice: 'Lap was not successfully saved.' }
+        format.html { redirect_to laps_new_path, notice: 'Lap was not successfully saved.' }
       end
     end
   end
