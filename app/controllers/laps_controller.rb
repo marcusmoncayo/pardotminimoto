@@ -38,7 +38,7 @@ class LapsController < ApplicationController
 
   def claim_post
     lap = Lap.find(params[:id])
-    if (lap.created_at < 6.minutes.ago) then
+    if (lap.created_at > 6.minutes.ago) then
       lap.update_attribute(:user_id, params[:user_id])
     end
     redirect_to unclaimed_laps_path
