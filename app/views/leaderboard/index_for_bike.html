@@ -18,7 +18,7 @@
         <tr>
           <td><%= index + 1 %></td>
           <td><%= link_to(User.find(lap.user_id).username, user_path(lap.user_id)) %></td>
-          <td><%= lap.formatted_time.round(2) %></td>
+          <td><%= lap.formatted_time.round(4) %></td>
           <td><%= Bike.find(lap.bike_id).color %></td>
           <td><%= lap.created_at.strftime("%m/%d/%Y") %></td>
         </tr>
