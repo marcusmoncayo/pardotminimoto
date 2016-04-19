@@ -29,6 +29,7 @@ class LapsController < ApplicationController
   end
 
   def unclaimed
+    Lap.all.where("user_id IS NULL and created_at < ?", 6.minutes.ago).delete_all
     @laps = Lap.all.where("user_id IS NULL").where("created_at > ?", 5.minutes.ago)
   end
 
