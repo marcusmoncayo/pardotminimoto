@@ -34,6 +34,7 @@ class LapsController < ApplicationController
 
   def claim
     @lap = Lap.find(params[:id])
+    @ordered_users = User.order('username asc')
   end
 
   def claim_post
