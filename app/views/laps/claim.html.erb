@@ -11,7 +11,7 @@
       </div>
     <% end %>
     <p>Select Username:</p>
-    <%= select_tag(:user_id, options_for_select(User.all.collect {|u| [ u.username, u.id ] })) %>
+    <%= select_tag(:user_id, options_for_select(@ordered_users.collect {|u| [ u.username, u.id ] })) %>
     <br/>
     <p>Bike: <%= Bike.find(@lap.bike_id).color %></p>
     <div>
